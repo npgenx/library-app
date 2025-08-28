@@ -8,7 +8,8 @@ export const workflowClient = new WorkflowClient({
 });
 
 const qstashClient = new QStashClient({
-  token: config.env.upstash.qstashToken,
+    baseUrl: config.env.upstash.qstashUrl,
+    token: config.env.upstash.qstashToken,
 });
 
 export const sendEmail = async ({
@@ -26,7 +27,7 @@ export const sendEmail = async ({
       provider: resend({ token: config.env.resendToken }),
     },
     body: {
-      from: "JS Mastery <contact@adrianjsmastery.com>",
+      from: "NPGenX Librarian <libraryAdmin@npgenx.com >",
       to: [email],
       subject,
       html: message,
